@@ -1,0 +1,606 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Progredir Treinamentos | Portal</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" href="images/logoMenor.png">
+	<link href="css/estilo.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/jquery.svg.css"  rel="stylesheet" type="text/css" />
+	<link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+	<script type='text/javascript' src='js/jquery-2.1.0.js'></script>
+	<script type="text/javascript" src="js/jquery.svg.js"></script>
+	<script type="text/javascript" src="js/math.js"></script>
+	<script type='text/javascript' src='js/script01.js'></script>
+	<script type='text/javascript' src='js/script.js'></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+</head>
+<body>
+<div class='container'>
+	<div class="headpag">
+		<img src="images/logoTextoImg.svg" /><span>Portal de Treinamento</span>
+	</div>
+  <article>
+   <div class="tabs-container">
+    <!-- ABA 1 -->
+    <input type="radio" name="tabs" class="tabs" id="unifilar" onChange="atualizaUnifilar()" checked>
+    <label for="unifilar">Unifilar</label>
+    <div>
+     <div class="unifilar">
+      <div id="oneline"/></div>
+      <div class="painel">
+        <fieldset class="opcoes">
+          <legend>C&aacute;lculos</legend>
+            <table>
+              <tr>
+                <td><label for="un_atualizaFlow">Fluxo Pot.:</label></td>
+                <td><input type="button" name="un_atualizaFlow" id="un_atualizaFlow" value="Calcular" onClick="calculaSistema()" /></td>
+              </tr>
+              <tr>
+                <td><label for="un_pontoCurto">Curto-circuito:</label></td>
+                <td><select id="un_pontoCurto">
+                	<option value="0">Sec. T1</option>
+                	<option value="1">Gerador</option>
+                	<option value="0">Carga 01</option>
+                	<option value="0">Carga 02</option>
+                	<option value="0">Motor</option>
+                </select></td>
+                <td><input type="button" name="un_atualizaCurto" id="un_atualizaCurto" value="Calcular" onClick="atualizaCurto()" disabled/></td>
+              </tr>
+              <tr>
+                <td><label for="un_simulacao">Simulação:</label></td>
+                <td><input type="button" name="un_simulacao" id="un_simulacao" value="Calcular" onClick="startSimulacao()" disabled/></td>
+              </tr>
+            </table>
+          </fieldset>
+        <fieldset class="opcoes">
+          <legend>Concession&aacute;ria</legend>
+            <table>
+              <tr>
+                <td><label for="un_DJE">Disjuntor:</label></td>
+                <td><input type="button" name="un_DJE" id="un_DJE" value="Abrir" onClick="manobra_DJE()"/></td>
+              </tr>
+              <tr>
+                <td><label for="un_concTensao">V nom.:</label></td>
+                <td><input type="text" name="un_concTensao" id="un_concTensao" size="6" value="" disabled/> kV</td>
+              </tr>
+              <tr>
+                <td><label for="un_concTensaoAtual">V atual:</label></td>
+                <td><input type="number" name="un_concTensaoAtual" id="un_concTensaoAtual" size="6" class="ajuste" max="" min="" step="0.1" /> kV</td>
+              </tr>
+              <tr>
+                <td><label for="un_concFPAtual">FP Atual:</label></td>
+                <td><input type="text" name="un_concFPAtual" id="un_concFPAtual" size="6" value="" disabled/></td>
+              </tr>
+            </table>
+          </fieldset>
+        <fieldset class="opcoes">
+          <legend>Transformador</legend>
+          <table>
+            <tr>
+              <td><label for="un_DJI">Disjuntor:</label></td>
+              <td><input type="button" name="un_DJI" id="un_DJI" value="Abrir" onClick="manobra_DJI()"/></td>
+            </tr>
+            <tr>
+              <td><label for="un_trafoPotNominal">P Nom.:</label></td>
+              <td><input type="text" name="un_trafoPotNominal" id="un_trafoPotNominal" size="6" value="" disabled/> kVA</td>
+            </tr>
+            <tr>
+              <td><label for="un_trafoPotAtual">P Atual:</label></td>
+              <td><input type="text" name="un_trafoPotAtual" id="un_trafoPotAtual" size="6" value="" disabled/> kVA</td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset class="opcoes">
+          <legend>Gerador</legend>
+            <table>
+              <tr>
+                <td><label for="un_LigaGer">Lig./Des.:</label></td>
+                <td><input type="button" name="un_LigaGer" id="un_LigaGer" value="Ligar" onClick="manobra_GER()"/></td>
+              </tr>
+              <tr>
+                <td><label for="un_DJG">Disjuntor:</label></td>
+                <td><input type="button" name="un_DJG" id="un_DJG" value="Fechar" onClick="manobra_DJG()" disabled/></td>
+              </tr>
+              <tr>
+                <td><label for="un_gerTensao">V nom.:</label></td>
+                <td><input type="text" name="un_gerTensao" id="un_gerTensao" size="6" value="" disabled/> V</td>
+              </tr>
+              <tr>
+                <td><label for="un_gerPotNominal">P Nom.:</label></td>
+                <td><input type="text" name="un_gerPotNominal" id="un_gerPotNominal" size="6" value="" disabled/> kVA</td>
+              </tr>
+              <tr>
+                <td>AVR</td>
+                <td><input type="button" name="un_gerAVR-" id="un_gerAVR-" value="-" onClick="avr(0.98)" />
+                    <input type="button" name="un_gerAVR+" id="un_gerAVR+" value="+" onClick="avr(1.02)" /></td>
+              </tr>
+              <tr>
+                <td>Acionador</td>
+                <td><input type="button" name="un_gerAcionador-" id="un_gerAcionador-" value="-" onClick="acionador('-')" />
+                    <input type="button" name="un_gerAcionador+" id="un_gerAcionador+" value="+" onClick="acionador('+')" /></td>
+              </tr>
+              <tr>
+                <td><label for="un_gerFPAtual">FP Atual:</label></td>
+                <td><input type="text" name="un_gerFPAtual" id="un_gerFPAtual" size="6" value="" disabled/></td>
+              </tr>
+            </table>
+          </fieldset>
+        <fieldset class="opcoes">
+          <legend>Carga 01</legend>
+            <table>
+              <tr>
+                <td><label for="un_DJC1">Disjuntor:</label></td>
+                <td><input type="button" name="un_DJC1" id="un_DJC1" value="Abrir" onClick="manobra_DJC1()"/></td>
+              </tr>
+              <tr>
+                <td><label for="un_potNomC01">P nom.:</label></td>
+                <td><input type="text" name="un_potNomC01" id="un_potNomC01" size="6" value="" disabled/> kVA</td>
+              </tr>
+              <tr>
+                <td><label for="un_potAtualC01">P atual:</label></td>
+                <td><input type="number" name="un_potAtualC01" id="un_potAtualC01" size="6" value="" class="ajuste" max="" min="" step="" value="" /> kVA</td>
+              </tr>
+            </table>
+          </fieldset>
+        <fieldset class="opcoes">
+          <legend>Carga 02</legend>
+            <table>
+              <tr>
+                <td><label for="un_DJC2">Disjuntor:</label></td>
+                <td><input type="button" name="un_DJC2" id="un_DJC2" value="Fechar" onClick="manobra_DJC2()"/></td>
+              </tr>
+              <tr>
+                <td><label for="un_potNomC02">P nom.:</label></td>
+                <td><input type="text" name="un_potNomC02" id="un_potNomC02" size="6" value="" disabled/> kVA</td>
+              </tr>
+              <tr>
+                <td><label for="un_potAtualC02">P atual:</label></td>
+                <td><input type="number" name="un_potAtualC02" id="un_potAtualC02" size="6" value="" class="ajuste" max="" min="" step="" value="" /> kVA</td>
+              </tr>
+            </table>
+          </fieldset>
+        <fieldset class="opcoes">
+          <legend>Motor</legend>
+            <table>
+              <tr>
+                <td><label for="un_DJM">Disjuntor:</label></td>
+                <td><input type="button" name="un_DJM" id="un_DJM" value="Abrir" onClick="manobra_DJM()"/></td>
+              </tr>
+              <tr>
+                <td><label for="un_potNomMotor">P nom.:</label></td>
+                <td><input type="text" name="un_potNomMotor" id="un_potNomMotor" size="6" value="" disabled/> HP</td>
+              </tr>
+              <tr>
+                <td><label for="un_potAtualMotor">P atual:</label></td>
+                <td><input type="number" name="un_potAtualMotor" id="un_potAtualMotor" size="6" value="" class="ajuste" max="" min="" step="" value="" /> HP</td>
+              </tr>
+            </table>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABA 2 -->
+    <input type="radio" name="tabs" class="tabs" id="componentes">
+    <label for="componentes">Componentes</label>
+    <div class="painel">
+      <fieldset class="opcoes">
+        <legend>Concession&aacute;ria</legend>
+          <table>
+            <tr>
+              <td><label for="co_concTensao">Tens&atilde;o:</label></td>
+              <td><input type="text" name="co_concTensao" id="co_concTensao" size="6" value="13.8"/> kV </td>
+            </tr>
+            <tr>
+              <td><label for="co_limSupconcTensao">Limite +:</label></td>
+              <td><input type="text" name="co_limSupconcTensao" id="co_limSupconcTensao" size="6" value="30"/> % </td>
+            </tr>
+            <tr>
+              <td><label for="co_limInfconcTensao">Limite -:</label></td>
+              <td><input type="text" name="co_limInfconcTensao" id="co_limInfconcTensao" size="6" value="30"/> % </td>
+            </tr>
+            <tr>
+              <td><label for="co_concPotCC3f">Curto 3f:</label></td>
+              <td><input type="text" name="co_concPotCC3f" id="co_concPotCC3f" size="6" value="100"/> MVA  </td>
+            </tr>
+            <tr>
+              <td><label for="co_concXR">X/R:</label></td>
+              <td><input type="text" name="co_concXR" id="co_concXR" size="6" value="15"/> </td>
+            </tr>
+          </table>
+        </fieldset>
+      <fieldset class="opcoes">
+        <legend>Transformador</legend>
+          <table>
+            <tr>
+              <td><label for="co_trafoTensaoSec">Tens&atilde;o Secund&aacute;rio:</label>
+              <td><input type="text" name="co_trafoTensaoSec" id="co_trafoTensaoSec" size="6" value="380"/> V </td>
+            </tr>
+            <tr>
+              <td><label for="co_trafoPot">Pot&ecirc;ncia:</label></td>
+              <td><select name="co_trafoPot" id="co_trafoPot" onChange="selecionaXRTrafo()">
+                    <option value="75">75</option>
+                    <option value="112.5">112.5</option>
+                    <option value="150">150</option>
+                    <option value="225">225</option>
+                    <option value="300">300</option>
+                    <option value="500">500</option>
+                    <option value="750">750</option>
+                    <option value="1000">1000</option>
+                    <option value="1500">1500</option>
+                    <option value="1750">1750</option>
+                    <option value="2000">2000</option>
+                    <option value="2500">2500</option>
+                    <option value="3000">3000</option>
+                    <option value="3500">3500</option>
+                    <option value="3750">3750</option>
+                    <option value="5000">5000</option>
+                    <option value="7500">7500</option>
+                    <option value="10000">10000</option>
+                    <option value="12000">12000</option>
+                    <option value="15000">15000</option>
+                  </select>kVA</td>
+            </tr>
+            <tr>
+              <td><label for="co_trafoZ">Z%:</label>
+              <td><input type="text" name="co_trafoZ" id="co_trafoZ" size="6" value="5"/> %</td>
+            </tr>
+            <tr>
+              <td><label for="co_trafoXR">X/R:</label>
+              <td><input type="text" name="co_trafoXR" id="co_trafoXR" size="6" value="8"/> </td>
+            </tr>
+          </table>
+        </fieldset>
+      <fieldset class="opcoes">
+        <legend>Gerador</legend>
+          <table>
+            <tr>
+              <td><label for="co_gerTensao">Tens&atilde;o:</label></td>
+              <td><input type="text" name="co_gerTensao" id="co_gerTensao" size="6" value="380"/> V </td>
+            </tr>
+            <!--
+            <tr>
+              <td><label for="co_limSupgerTensao">Limite +:</label></td>
+              <td><input type="text" name="co_limSupgerTensao" id="co_limSupgerTensao" size="6" value="30"/> % </td>
+            </tr>
+            <tr>
+              <td><label for="co_limInfgerTensao">Limite -:</label></td>
+              <td><input type="text" name="co_limInfgerTensao" id="co_limInfgerTensao" size="6" value="30"/> % </td>
+            </tr>
+            -->
+            <tr>
+              <td><label for="co_gerPot">Pot&ecirc;ncia:</label>
+              <td><select name="co_gerPot" id="co_gerPot">
+                    <option value="180">180</option>
+                    <option value="230">230</option>
+                    <option value="500">500</option>
+                    <option value="730">730</option>
+                    <option value="1500">1500</option>
+                    <option value="2000">2000</option>
+                    <option value="2500">2500</option>
+                    <option value="3000">3000</option>
+                    <option value="3500">3500</option>
+                    <option value="4000">4000</option>
+                    <option value="4500">4500</option>
+                    <option value="5000">5000</option>
+                    <option value="6000">6000</option>
+                    <option value="7000">7000</option>
+                    <option value="8000">8000</option>
+                    <option value="9000">9000</option>
+                    <option value="10000">10000</option>
+                    <option value="15000">15000</option>
+                    <option value="18000">18000</option>
+                    <option value="20000">20000</option>
+                    <option value="25000">25000</option>
+                  </select>kVA</td>
+            </tr>
+            <tr>
+              <td><label for="co_sobregerPot">Sobrecarga:</label></td>
+              <td><input type="text" name="co_sobregerPot" id="co_sobregerPot" size="6" value="30"/> % </td>
+            </tr>
+            <tr>
+              <td><label for="co_gerZ">Z%:</label>
+              <td><input type="text" name="co_gerZ" id="co_gerZ" size="6" value="15"/> %</td>
+            </tr>
+            <tr>
+              <td><label for="co_gerXR">X/R:</label>
+              <td><input type="text" name="co_gerXR" id="co_gerXR" size="6" value="22"/></td>
+            </tr>
+            <tr>
+              <td><label for="co_gerFP">FP:</label>
+              <td><input type="text" name="co_gerFP" id="co_gerFP" size="6" value="0,8"/> </td>
+            </tr>
+            <tr>
+              <td><label for="co_gerRend">Rendim.:</label>
+              <td><input type="text" name="co_gerRend" id="co_gerRend" size="6" value="90"/> %</td>
+            </tr>
+          </table>
+        </fieldset>
+      <fieldset class="opcoes">
+        <legend>Carga 01</legend>
+          <table>
+            <tr>
+              <td><label for="co_c1Pot">Pot&ecirc;ncia:</label>
+              <td><input type="text" name="co_c1Pot" id="co_c1Pot" size="6" value="10"/> kVA  </td>
+            </tr>
+            <tr>
+              <td><label for="co_sobrec1Pot">Sobrecarga:</label></td>
+              <td><input type="text" name="co_sobrec1Pot" id="co_sobrec1Pot" size="6" value="10"/> % </td>
+            </tr>
+            <tr>
+              <td><label for="co_c1FP">FP:</label>
+              <td><input type="text" name="co_c1FP" id="co_c1FP" size="6" value="0.8"/> </td>
+            </tr>
+          </table>
+        </fieldset>
+      <fieldset class="opcoes">
+        <legend>Carga 02</legend>
+          <table>
+            <tr>
+              <td><label for="co_c2Pot">Pot&ecirc;ncia:</label>
+              <td><input type="text" name="co_c2Pot" id="co_c2Pot" size="6" value="10"/> kVA  </td>
+            </tr>
+            <tr>
+              <td><label for="co_sobrec2Pot">Sobrecarga:</label></td>
+              <td><input type="text" name="co_sobrec2Pot" id="co_sobrec2Pot" size="6" value="10"/> % </td>
+            </tr>
+            <tr>
+              <td><label for="co_c2FP">FP:</label>
+              <td><input type="text" name="co_c2FP" id="co_c2FP" size="6" value="0.8"/> </td>
+            </tr>
+          </table>
+        </fieldset>
+      <fieldset class="opcoes">
+        <legend>Motor</legend>
+          <table>
+            <tr>
+              <td><label for="co_motorTensao">Tens&atilde;o:</label></td>
+              <td><input type="text" name="co_motorTensao" id="co_motorTensao" size="6" value="360"/> V </td>
+            </tr>
+            <tr>
+              <td><label for="co_motPot">Pot&ecirc;ncia:</label>
+              <td><select name="co_motPot" id="co_motPot">
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                    <option value="60">60</option>
+                    <option value="75">75</option>
+                    <option value="100">100</option>
+                    <option value="125">125</option>
+                    <option value="175">175</option>
+                    <option value="200">200</option>
+                    <option value="250">250</option>
+                    <option value="300">300</option>
+                    <option value="400">400</option>
+                    <option value="450">450</option>
+                    <option value="500">500</option>
+                    <option value="600">600</option>
+                    <option value="750">750</option>
+                    <option value="1000">1000</option>
+                  </select>HP</td>
+            </tr>
+            <tr>
+              <td><label for="co_sobremotPot">Sobrecarga:</label></td>
+              <td><input type="text" name="co_sobremotPot" id="co_sobremotPot" size="6" value="10"/> % </td>
+            </tr>
+            <tr>
+              <td><label for="co_motIpIn">Ip/In:</label>
+              <td><input type="text" name="co_motIpIn" id="co_motIpIn" size="6" value="5"/> </td>
+            </tr>
+            <tr>
+              <td><label for="co_tmpPartMot">Partida:</label>
+              <td><input type="text" name="co_tmpPartMot" id="co_tmpPartMot" size="6" value="10"/> seg </td>
+            </tr>
+            <tr>
+              <td><label for="co_motFP">FP:</label>
+              <td><input type="text" name="co_motFP" id="co_motFP" size="6" value="0.8"/> </td>
+            </tr>
+            <tr>
+              <td><label for="co_motRend">Rendim.:</label>
+              <td><input type="text" name="co_motRend" id="co_motRend" size="6" value="90"/> %</td>
+            </tr>
+          </table>
+        </fieldset>
+    </div>
+    
+    <!-- ABA 3 -->
+    <input type="radio" name="tabs" class="tabs" id="reles">
+    <label for="reles">Prote&ccedil;&atilde;o</label>
+    <div class="painel">
+      <fieldset class="opcoes">
+      <legend>RLE (Entrada)</legend>
+        <fieldset>
+          <legend>50 (Sobrecorrente inst.)</legend>
+          <table>
+            <tr>
+              <td><label for="pr_rle50I">I>></label></td>
+              <td><input type="text" name="pr_rle50I" id="pr_rle50I" size="6" value=""/> kA </td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>51 (Sobrecorrente temp.)</legend>
+          <table>
+            <tr>
+              <td><label for="pr_rle51I">I></label></td>
+              <td><input type="text" name="pr_rle51I" id="pr_rle51I" size="6" value=""/> A </td>
+            </tr>
+          </table>
+        </fieldset>
+      </fieldset>
+      <fieldset class="opcoes">
+      <legend>RLI (Interliga&ccedil;&atilde;o)</legend>
+        <fieldset>
+          <legend>27 (Subtes&atilde;o)</legend>
+          <table>
+            <tr>
+              <td><label for="pr_rli27V">Tens&atilde;o:</label></td>
+              <td><input type="text" name="pr_rli27V" id="pr_rli27V" size="6" value=""/> V </td>
+            </tr>
+            <tr>
+              <td><label for="pr_rli27T">Tempo:</label></td>
+              <td><input type="text" name="pr_rli27T" id="pr_rli27T" size="6" value="5"/> seg </td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>67 (Direcional de sobrecorrente inst.)</legend>
+          <table>
+            <tr>
+              <td><label for="pr_rli67I">I>></label></td>
+              <td><input type="text" name="pr_rli67I" id="pr_rli67I" size="6" value="24"/> kV </td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>32 (Direcional de pot&ecirc;ncia)</legend>
+          <table>
+            <tr>
+              <td><label for="pr_rli32P">Pot.</label></td>
+              <td><input type="text" name="pr_rli32P" id="pr_rli32P" size="6" value=""/> kW </td>
+            </tr>
+            <tr>
+              <td><label for="pr_rli32T">Tempo:</label></td>
+              <td><input type="text" name="pr_rli32T" id="pr_rli32T" size="6" value="5"/> seg </td>
+            </tr>
+          </table>
+        </fieldset>
+      </fieldset>
+      <fieldset class="opcoes">
+      <legend>RLC1 (Carga 01)</legend>
+        <fieldset>
+          <legend>50 (Sobrecorrente inst.)</legend>
+          <table>
+            <tr>
+              <td><label for="pr_rlc150I">I>></label></td>
+              <td><input type="text" name="pr_rlc150I" id="pr_rlc150I" size="6" value=""/> kA </td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>51 (Sobrecorrente temp.)</legend>
+          <table>
+            <tr>
+              <td><label for="pr_rlc151I">I></label></td>
+              <td><input type="text" name="pr_rlc150I" id="pr_rlc150I" size="6" value=""/> A </td>
+            </tr>
+          </table>
+        </fieldset>
+      </fieldset>
+      <fieldset class="opcoes">
+      <legend>RLC2 (Carga 02)</legend>
+        <fieldset>
+          <legend>50 (Sobrecorrente inst.)</legend>
+          <table>
+            <tr>
+              <td><label for="pr_rlc250I">I>></label></td>
+              <td><input type="text" name="pr_rlc250I" id="pr_rlc250I" size="6" value=""/> kA </td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>51 (Sobrecorrente temp.)</legend>
+          <table>
+            <tr>
+              <td><label for="pr_rlc251I">I></label></td>
+              <td><input type="text" name="pr_rlc251I" id="pr_rlc251I" size="6" value=""/> A </td>
+            </tr>
+          </table>
+        </fieldset>
+      </fieldset>
+      <fieldset class="opcoes">
+      <legend>RLM (Motor)</legend>
+        <fieldset>
+          <legend>50 (Sobrecorrente inst.)</legend>
+          <table>
+            <tr>
+              <td><label for="pr_rlm50I">I>></label></td>
+              <td><input type="text" name="pr_rlm50I" id="pr_rlm50I" size="6" value=""/> kA </td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>51 (Sobrecorrente temp.)</legend>
+          <table>
+            <tr>
+              <td><label for="pr_rlm51I">I></label></td>
+              <td><input type="text" name="pr_rlm50I" id="pr_rlm50I" size="6" value=""/> A </td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>49 (T&eacute;rmico)</legend>
+          <table>
+            <tr>
+              <td><label for="pr_concTensao">Tens&atilde;o:</label></td>
+              <td><input type="text" name="pr_concTensao" id="pr_concTensao" size="6" value="24"/> kV </td>
+            </tr>
+          </table>
+        </fieldset>
+      </fieldset>
+      <fieldset class="opcoes">
+      <legend>RLG (Gerador)</legend>
+        <fieldset>
+          <legend>27 (Subtes&atilde;o)</legend>
+          <table>
+            <tr>
+              <td><label for="pr_rlg27V">Tens&atilde;o:</label></td>
+              <td><input type="text" name="pr_rlg27V" id="pr_rlg27V" size="6" value=""/> V </td>
+            </tr>
+            <tr>
+              <td><label for="pr_rlg27T">Tempo:</label></td>
+              <td><input type="text" name="pr_rlg27T" id="pr_rlg27T" size="6" value="5"/> seg </td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>67 (Direcional de sobrecorrente inst.)</legend>
+          <table>
+            <tr>
+              <td><label for="pr_rlg67I">I>></label></td>
+              <td><input type="text" name="pr_rlg67I" id="pr_rlg67I" size="6" value=""/> A </td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>32 (Direcional de pot&ecirc;ncia)</legend>
+          <table>
+            <tr>
+              <td><label for="pr_rlg32P">Pot.</label></td>
+              <td><input type="text" name="pr_rlg32P" id="pr_rlg32P" size="6" value=""/> kW </td>
+            </tr>
+            <tr>
+              <td><label for="pr_rlg32T">Tempo:</label></td>
+              <td><input type="text" name="pr_rlg32T" id="pr_rlg32T" size="6" value="5"/> seg </td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>51 (Sobrecorrente temp.)</legend>
+          <table>
+            <tr>
+              <td><label for="pr_rlg51I">I></label></td>
+              <td><input type="text" name="pr_rlg51I" id="pr_rlg51I" size="6" value=""/> A </td>
+            </tr>
+          </table>
+        </fieldset>
+      </fieldset>
+    </div>
+
+    <!-- ABA 4 -->
+    <input type="radio" name="tabs" class="tabs" id="simulacao">
+    <label for="simulacao">Simula&ccedil;&atilde;o</label>
+    <div>
+       Aba 4
+    </div>
+
+   </div>
+  </article>
+  <aside>
+  </aside>
+  <footer>
+  </footer>  
+ </body>
+</html>
+</div>

@@ -1,0 +1,180 @@
+<div class="row">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		<div class="panel panel-warning" id="un_caixaUnifilar">
+			<div class="panel-heading" id="un_labelUnifilar"></div>
+			<div class="panel-body">
+				<div id="oneline" class="img-responsive" style="width: 163mm; height: 180mm;"></div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<div class="panel panel-info">
+					<div class="panel-heading">Concessionaire</div>
+					<div class="panel-body">
+					<table>
+						<tr>
+							<td><td><label for="un_DJE">Breaker:</label></td></td>
+							<td><input type="button" class="btn btn-default btn-xs" name="un_DJE" id="un_DJE" value="Open" onClick="manobra_DJE()"/></td>
+						</tr>						
+						<tr>
+							<td><td><label for="un_concTensaoAtual">Volts:</label></td></td>
+							<td><input type="number" name="un_concTensaoAtual" id="un_concTensaoAtual" style="width: 6em;" class="ajuste" max="" min="" step="0.01" onClick="calculaSistema()"/> kV</td>
+						</tr>
+					</table>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<div class="panel panel-info">
+					<div class="panel-heading">Trafo</div>
+					<div class="panel-body">
+						<td><label for="un_DJI">Breaker:</label></td>
+						<input type="button" class="btn btn-default btn-xs" name="un_DJI" id="un_DJI" value="Open" onClick="manobra_DJI()"/></br>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<div class="panel panel-info">
+					<div class="panel-heading">Load 01</div>
+					<div class="panel-body">
+					<table>
+						<tr>
+							<td><td><label for="un_DJC1">Breaker:</label></td></td>
+	                		<td><input type="button" class="btn btn-default btn-xs" name="un_DJC1" id="un_DJC1" value="Open" onClick="manobra_DJC1()"/></td>
+						<tr>
+						</tr>
+	              			<td><td><label for="un_potAtualC01">Power:</label></td></td>
+	                		<td><input type="number" name="un_potAtualC01" id="un_potAtualC01" style="width: 6em;" value="" class="ajuste" max="" min="" step="" value="" onClick="calculaSistema()"/> kVA</td>
+						</tr>
+					</table>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<div class="panel panel-info">
+					<div class="panel-heading">Load 02</div>
+					<div class="panel-body">
+					<table>
+						<tr>
+			                <td><label for="un_DJC2">Breaker: </label></td>
+			                <td><input type="button" class="btn btn-default btn-xs" name="un_DJC2" id="un_DJC2" value="Close" onClick="manobra_DJC2()"/></td>
+						<tr>
+						</tr>
+			                <td><label for="un_potAtualC02">Power:</label></td>
+			                <td><input type="number" name="un_potAtualC02" id="un_potAtualC02" value="" class="ajuste" style="width: 6em;" max="" min="" step="" value="" onClick="calculaSistema()"/> kVA</td>
+						</tr>
+					</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<div class="panel panel-info">
+					<div class="panel-heading">Motor</div>
+					<div class="panel-body">
+					<table>
+						<tr>
+						<td><label for="un_DJM">Breaker:</label></td>
+						<td><input type="button" class="btn btn-default btn-xs" name="un_DJM" id="un_DJM" value="Open" onClick="manobra_DJM()"/></td>
+						</tr>
+						<tr>
+						<td><label for="un_potAtualMotor">Power:</label></td>
+						<td><input type="number" name="un_potAtualMotor" id="un_potAtualMotor" style="width: 6em;" value="" class="ajuste" max="" min="" step="" value="" onClick="calculaSistema()"/> HP</td>
+						</tr>
+					</table>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<div class="panel panel-info">
+					<div class="panel-heading">Calculation</div>
+					<div class="panel-body">
+					<table>
+						<tr>
+						<td><label for="un_pontoCurto">Short-circuit:</label></td>
+							<td><select id="un_pontoCurto" onChange="calculoCurto()" disabled>
+								   	<option value="0">---</option>
+								   	<option value="1">Input</option>								   	
+								   	<option value="2">Sec. T1</option>
+								   	<option value="3">Generator</option>
+								   	<option value="4">Bus</option>
+								   	<option value="5">Load 01</option>
+								   	<option value="6">Load 02</option>
+								   	<option value="7">Motor</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td><label for="un_simulacao" id="un_labelSimulacao">Simulation:</label></td>
+							<td><input type="button" class="btn btn-default btn-xs" name="un_simulacao" id="un_simulacao" value="Start" onClick="startSimulacao()" disabled/></td>
+						</tr>			
+					</table>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="panel panel-info">
+					<div class="panel-heading">Generator</div>
+					<div class="panel-body">
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+							<div class="panel">
+								<div class="panel-heading">Operation</div>
+								<div class="panel-body">
+									<table>
+										<tr>
+											<td><label for="un_LigaGer">On/Off:</label></td>
+											<td><input type="button" class="btn btn-default btn-xs" name="un_LigaGer" id="un_LigaGer" value="On" onClick="manobra_GER()"/></td>
+										</tr>
+										<tr>
+											<td><label for="un_DJG">Breaker:</label></td>
+											<td><input type="button" class="btn btn-default btn-xs" name="un_DJG" id="un_DJG" value="Close" onClick="manobra_DJG()" disabled/></td>
+										</tr>
+									</table>
+								</div>					
+							</div>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+							<div class="panel">
+								<div class="panel-heading">Manual</div>
+								<div class="panel-body">
+									<table>
+										<tr>
+											<td><label> AVR </label></td>
+											<td><input type="button" class="btn btn-default btn-xs" name="un_gerAVR-" id="un_gerAVRmenos" value="-" onClick="avr(0)"  disabled/>
+											<input type="button" class="btn btn-default btn-xs" name="un_gerAVR+" id="un_gerAVRmais" value="+" onClick="avr(1)"  disabled/></td>
+										</tr>
+										<tr>
+											<td><label> Motor </label></td>
+											<td><input type="button" class="btn btn-default btn-xs" name="un_gerAcionador-" id="un_gerAcionadormenos" value="-" onClick="acionador(0)"  disabled/>
+											<input type="button" class="btn btn-default btn-xs" name="un_gerAcionador+" id="un_gerAcionadormais" value="+" onClick="acionador(1)"  disabled/></td>
+										</tr>
+									</table>
+								</div>					
+							</div>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+							<div class="panel">
+								<div class="panel-heading"><input type="checkbox" name="un_gerisocrono" id="un_gerisocrono" checked="checked" onChange="modoIsocrono()"/>Automatic</div>
+								<div class="panel-body">
+									<table>
+										<tr>
+											<td><label>Load </label></td>
+											<td><input type="number" name="un_percisoc" id="un_percisoc" style="width: 3.5em;" class="ajuste" max="100" min="0" value="0" onChange="atualizaPerIsoc()"/></td><td>%</td>
+										</tr>
+									</table>
+								</div>					
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

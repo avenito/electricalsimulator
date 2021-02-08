@@ -1,0 +1,243 @@
+<div class="row">
+	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+		<div class="panel panel-info">
+			<div class="panel-heading">Concessionaire</div>
+			<div class="panel-body">
+			    <table>
+			      <tr>
+			        <td><label for="co_concTensao">Voltage:</label></td>
+			        <td><input type="text" name="co_concTensao" id="co_concTensao" size="6" value="13.8"/> kV </td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_limSupconcTensao">Limit +:</label></td>
+			        <td><input type="text" name="co_limSupconcTensao" id="co_limSupconcTensao" size="6" value="30"/> % </td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_limInfconcTensao">Limit -:</label></td>
+			        <td><input type="text" name="co_limInfconcTensao" id="co_limInfconcTensao" size="6" value="30"/> % </td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_concPotCC3f">Short-circuit 3f:</label></td>
+			        <td><input type="text" name="co_concPotCC3f" id="co_concPotCC3f" size="6" value="100"/> MVA  </td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_concXR">X/R:</label></td>
+			        <td><input type="text" name="co_concXR" id="co_concXR" size="6" value="15"/> </td>
+			      </tr>
+			    </table>
+		    </div>
+	    </div>
+	</div>
+	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+		<div class="panel panel-info">
+			<div class="panel-heading">Generator</div>
+			<div class="panel-body">
+			    <table>
+			      <tr>
+			        <td><label for="co_gerTensao">Voltage:</label></td>
+			        <td><input type="text" name="co_gerTensao" id="co_gerTensao" size="6" value="380"/> V </td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_gerPot">Power:</label>
+			        <td><select name="co_gerPot" id="co_gerPot">
+			              <option value="180">180</option>
+			              <option value="230">230</option>
+			              <option value="500">500</option>
+			              <option value="730">730</option>
+			              <option value="1500">1500</option>
+			              <option value="2000">2000</option>
+			              <option value="2500">2500</option>
+			              <option value="3000">3000</option>
+			              <option value="3500">3500</option>
+			              <option value="4000">4000</option>
+			              <option value="4500">4500</option>
+			              <option value="5000">5000</option>
+			              <option value="6000">6000</option>
+			              <option value="7000">7000</option>
+			              <option value="8000">8000</option>
+			              <option value="9000">9000</option>
+			              <option value="10000">10000</option>
+			              <option value="15000">15000</option>
+			              <option value="18000">18000</option>
+			              <option value="20000">20000</option>
+			              <option value="25000">25000</option>
+			            </select>kVA</td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_sobregerPot">Overload:</label></td>
+			        <td><input type="text" name="co_sobregerPot" id="co_sobregerPot" size="6" value="30"/> % </td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_gerZ">Z%:</label>
+			        <td><input type="text" name="co_gerZ" id="co_gerZ" size="6" value="15"/> %</td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_gerXR">X/R:</label>
+			        <td><input type="text" name="co_gerXR" id="co_gerXR" size="6" value="22"/></td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_gerFP">PF:</label>
+			        <td><input type="text" name="co_gerFP" id="co_gerFP" size="6" value="0,8"/> </td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_gerRend">Effic..:</label>
+			        <td><input type="text" name="co_gerRend" id="co_gerRend" size="6" value="90"/> %</td>
+			      </tr>
+			    </table>
+		    </div>
+	    </div>
+	</div>
+		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+		<div class="panel panel-info">
+			<div class="panel-heading">Motor</div>
+			<div class="panel-body">
+			    <table>
+			      <tr>
+			        <td><label for="co_motorTensao">Voltage:</label></td>
+			        <td><input type="text" name="co_motorTensao" id="co_motorTensao" size="6" value="360"/> V </td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_motPot">Power:</label>
+			        <td><select name="co_motPot" id="co_motPot">
+			              <option value="30">30</option>
+			              <option value="40">40</option>
+			              <option value="50">50</option>
+			              <option value="60">60</option>
+			              <option value="75">75</option>
+			              <option value="100">100</option>
+			              <option value="125">125</option>
+			              <option value="175">175</option>
+			              <option value="200">200</option>
+			              <option value="250">250</option>
+			              <option value="300">300</option>
+			              <option value="400">400</option>
+			              <option value="450">450</option>
+			              <option value="500">500</option>
+			              <option value="600">600</option>
+			              <option value="750">750</option>
+			              <option value="1000">1000</option>
+			            </select>HP</td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_sobremotPot">Overload:</label></td>
+			        <td><input type="text" name="co_sobremotPot" id="co_sobremotPot" size="6" value="10"/> % </td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_motIpIn">Ip/In:</label>
+			        <td><input type="text" name="co_motIpIn" id="co_motIpIn" size="6" value="5"/> </td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_tmpPartMot">Start:</label>
+			        <td><input type="text" name="co_tmpPartMot" id="co_tmpPartMot" size="6" value="10"/> seg </td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_motFP">PF:</label>
+			        <td><input type="text" name="co_motFP" id="co_motFP" size="6" value="0.8"/> </td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_motRend">Effic..:</label>
+			        <td><input type="text" name="co_motRend" id="co_motRend" size="6" value="90"/> %</td>
+			      </tr>
+			    </table>
+		    </div>
+	    </div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+		<div class="panel panel-info">
+			<div class="panel-heading">Load 01</div>
+			<div class="panel-body">
+			    <table>
+			      <tr>
+			        <td><label for="co_c1Pot">Power:</label>
+			        <td><input type="text" name="co_c1Pot" id="co_c1Pot" size="6" value="10"/> kVA  </td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_sobrec1Pot">Overload:</label></td>
+			        <td><input type="text" name="co_sobrec1Pot" id="co_sobrec1Pot" size="6" value="10"/> % </td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_c1FP">PF:</label>
+			        <td><input type="text" name="co_c1FP" id="co_c1FP" size="6" value="0.8"/> </td>
+			      </tr>
+			    </table>
+		    </div>
+	    </div>
+	</div>
+	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+		<div class="panel panel-info">
+			<div class="panel-heading">Load 02</div>
+			<div class="panel-body">
+			    <table>
+			      <tr>
+			        <td><label for="co_c2Pot">Power:</label>
+			        <td><input type="text" name="co_c2Pot" id="co_c2Pot" size="6" value="10"/> kVA  </td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_sobrec2Pot">Overload:</label></td>
+			        <td><input type="text" name="co_sobrec2Pot" id="co_sobrec2Pot" size="6" value="10"/> % </td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_c2FP">PF:</label>
+			        <td><input type="text" name="co_c2FP" id="co_c2FP" size="6" value="0.8"/> </td>
+			      </tr>
+			    </table>
+		    </div>
+	    </div>
+	</div>
+	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+		<div class="panel panel-info">
+			<div class="panel-heading">Trafo</div>
+			<div class="panel-body">
+			    <table>
+			      <tr>
+			        <td><label for="co_trafoTensaoPrim">Voltage Prim&aacute;rio:</label>
+			        <td><input type="text" name="co_trafoTensaoPrim" id="co_trafoTensaoPrim" size="6" value="13.8"/> kV </td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_trafoTapPrim">TAP Prim&aacute;rio:</label>
+			        <td><input type="text" name="co_trafoTapPrim" id="co_trafoTapPrim" size="6" value="13.8"/> kV </td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_trafoTensaoSec">Voltage Secund&aacute;rio:</label>
+			        <td><input type="text" name="co_trafoTensaoSec" id="co_trafoTensaoSec" size="6" value="380"/> V </td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_trafoPot">Power:</label></td>
+			        <td><select name="co_trafoPot" id="co_trafoPot" onChange="selecionaXRTrafo()">
+			              <option value="75">75</option>
+			              <option value="112.5">112.5</option>
+			              <option value="150">150</option>
+			              <option value="225">225</option>
+			              <option value="300">300</option>
+			              <option value="500">500</option>
+			              <option value="750">750</option>
+			              <option value="1000">1000</option>
+			              <option value="1500">1500</option>
+			              <option value="1750">1750</option>
+			              <option value="2000">2000</option>
+			              <option value="2500">2500</option>
+			              <option value="3000">3000</option>
+			              <option value="3500">3500</option>
+			              <option value="3750">3750</option>
+			              <option value="5000">5000</option>
+			              <option value="7500">7500</option>
+			              <option value="10000">10000</option>
+			              <option value="12000">12000</option>
+			              <option value="15000">15000</option>
+			            </select>kVA</td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_trafoZ">Z%:</label>
+			        <td><input type="text" name="co_trafoZ" id="co_trafoZ" size="6" value="5"/> %</td>
+			      </tr>
+			      <tr>
+			        <td><label for="co_trafoXR">X/R:</label>
+			        <td><input type="text" name="co_trafoXR" id="co_trafoXR" size="6" value="8"/> </td>
+			      </tr>
+			    </table>
+		    </div>
+	    </div>
+	</div>
+</div>

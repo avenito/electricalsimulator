@@ -1,0 +1,87 @@
+<div class="row">
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+		<div class="panel panel-info">
+			<div class="panel-heading">Conex&atilde;o</div>
+			<div class="panel-body">
+				<label for="op_conexaounica">
+				<input type="radio" name="op_conexaounica" id="op_conexaounica" checked="checked"/> &Uacute;nica</label></br>
+				<label for="op_numerodeconexoes">
+				<input type="radio" name="op_conexaounica" id="op_conexaounica" /> M&aacute;xima </label>
+				<input type="text" name="op_numerodeconexoes" id="op_numerodeconexoes" size="2" value="30"/></br>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+		<div class="panel panel-info">
+			<div class="panel-heading">Unifilar</div>
+			<div class="panel-body clearfix">
+				<div>
+					<select name="op_unifilar" id="op_unifilar" class="center-block">
+						<option value="unifilar">Comercial</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+		<div class="panel panel-info">
+			<div class="panel-heading">Simula&ccedil;&atilde;o</div>
+			<div class="panel-body clearfix">
+				<div>
+					<select name="op_simulacao" id="op_simulacao" class="center-block" onChange="mudaSimulacao()">
+						<option value=1>Sobretens&atilde;o</option>
+						<option value=2>Subtens&atilde;o</option>
+						<option value=3>Curto rede</option>						
+						<option value=4>Curto prim&aacute;rio</option>						
+						<option value=5>Curto secund&aacute;rio</option>
+						<option value=6>Curto carga 01</option>						
+						<option value=7>Curto carga 02</option>						
+						<option value=8>Curto motor</option>						
+						<option value=9>Curto no gerador</option>						
+					</select></br>
+					<select name="op_percentualSimulacao" id="op_percentualSimulacao" class="center-block">
+						<option value="10">10%</option>
+						<option value="20">20%</option>
+						<option value="30">30%</option>						
+						<option value="40">40%</option>						
+						<option value="50">50%</option>
+						<option value="60">60%</option>						
+						<option value="80">80%</option>						
+						<option value="100">100%</option>						
+					</select></br>
+					<button type="button" class="center-block btn btn-danger"  id="op_stSimulacao">Parada</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+		<div class="panel panel-info">
+			<div class="panel-heading">Mensagem</div>
+			<div class="panel-body">
+				<input type="text" class="form-control center-block" placeholder="Mensagem broadcast" id="op_msgBroadcast"></br>
+				<select name="op_msgPadrao" id="op_msgPadrao" class="center-block">
+						<option value="A simula&ccedil;&atilde;o vai come&ccedil;ar!!!">A simula&ccedil;&atilde;o vai come&ccedil;ar!!!</option>
+						<option value="Obrigado a todos!!!">Obrigado a todos!!!</option>
+						<option value="Intervalo pessoal!">Intervalo pessoal!</option>						
+						<option value="O que acham de almo&ccedil;armos?!">O que acham de almo&ccedil;armos?!</option>						
+						<option value="Coofebreak!">Coofebreak!</option>
+				</select></br>
+				<button type="button" class="center-block btn btn-success" id="op_enviaMsg"  onClick="enviaMsgBroadcast()">Enviar</button>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+		<div class="panel panel-warning">
+			<div class="panel-heading">Servidor</div>
+			<div class="panel-body">
+				<h1><span id="op_labelServidor" class="center-block label label-danger">Offline</span></h1>
+			</div>
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge" id="op_numConexoes">0</span>Conexoes</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="row">
+	
+</div>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Gerado pelo Microsoft Visio, SVG Export textoLogo.svg Página-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="7.09009in" height="2.22788in"
+		viewBox="0 0 510.486 160.407" xml:space="preserve" color-interpolation-filters="sRGB" class="st4">
+	<v:documentProperties v:langID="1046" v:metric="true" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="msvConvertTheme"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.25}
+		.st2 {fill:#235c73;font-family:Arial;font-size:4.99999em}
+		.st3 {fill:#3f8c9e;font-family:Arial;font-size:2.50001em;letter-spacing:0.133333em}
+		.st4 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<title>Página-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<g id="group6-1" transform="translate(0.125,-0.125)" v:mID="6" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
+				<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
+			</v:userDefs>
+			<title>Planilha.6</title>
+			<g id="shape4-2" v:mID="4" v:groupContext="shape" transform="translate(53.1496,-11.3386)">
+				<title>Planilha.4</title>
+				<desc>Progredir</desc>
+				<v:userDefs>
+					<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
+					<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(2,2,2,2)" v:tabSpace="42.5197"/>
+				<v:textRect cx="201.969" cy="85.998" width="403.94" height="148.819"/>
+				<rect x="0" y="11.5886" width="403.937" height="148.819" class="st1"/>
+				<text x="78.58" y="104" class="st2" v:langID="1046"><v:paragraph v:horizAlign="1"/><v:tabList/>Progredir</text>			</g>
+			<g id="shape5-5" v:mID="5" v:groupContext="shape">
+				<title>Planilha.5</title>
+				<desc>Treinamentos Especializados</desc>
+				<v:userDefs>
+					<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
+					<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(2,2,2,2)" v:tabSpace="42.5197"/>
+				<v:textRect cx="255.118" cy="132.061" width="510.24" height="56.6929"/>
+				<rect x="0" y="103.715" width="510.236" height="56.6929" class="st1"/>
+				<text x="5.18" y="141.06" class="st3" v:langID="1046"><v:paragraph v:horizAlign="1"/><v:tabList/>Treinamentos Especializados</text>			</g>
+		</g>
+	</g>
+</svg>
